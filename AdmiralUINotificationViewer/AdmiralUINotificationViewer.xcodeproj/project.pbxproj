@@ -1,0 +1,417 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FD02E4192AADF61C0048AABB /* AdmiralUINotificationViewerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD02E4182AADF61C0048AABB /* AdmiralUINotificationViewerApp.swift */; };
+		FD02E41D2AADF61D0048AABB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD02E41C2AADF61D0048AABB /* Assets.xcassets */; };
+		FD02E4212AADF61D0048AABB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD02E4202AADF61D0048AABB /* Preview Assets.xcassets */; };
+		FD02E42B2AADF63E0048AABB /* AdmiralNotificationsSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = FD02E42A2AADF63E0048AABB /* AdmiralNotificationsSwiftUI */; };
+		FD02E4312AADF6840048AABB /* ToastModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD02E42F2AADF6840048AABB /* ToastModel.swift */; };
+		FD02E4322AADF6840048AABB /* ToastType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD02E4302AADF6840048AABB /* ToastType.swift */; };
+		FD02E4372AADF6950048AABB /* ToastSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD02E4342AADF6940048AABB /* ToastSettingsView.swift */; };
+		FD02E4382AADF6950048AABB /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD02E4352AADF6950048AABB /* MainView.swift */; };
+		FD02E4392AADF6950048AABB /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD02E4362AADF6950048AABB /* MainViewModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		FD02E4152AADF61C0048AABB /* AdmiralUINotificationViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdmiralUINotificationViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD02E4182AADF61C0048AABB /* AdmiralUINotificationViewerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUINotificationViewerApp.swift; sourceTree = "<group>"; };
+		FD02E41C2AADF61D0048AABB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FD02E41E2AADF61D0048AABB /* AdmiralUINotificationViewer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AdmiralUINotificationViewer.entitlements; sourceTree = "<group>"; };
+		FD02E4202AADF61D0048AABB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FD02E4282AADF6340048AABB /* AdmiralNotificationsSwiftUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AdmiralNotificationsSwiftUI; path = ..; sourceTree = "<group>"; };
+		FD02E42F2AADF6840048AABB /* ToastModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToastModel.swift; sourceTree = "<group>"; };
+		FD02E4302AADF6840048AABB /* ToastType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToastType.swift; sourceTree = "<group>"; };
+		FD02E4342AADF6940048AABB /* ToastSettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToastSettingsView.swift; sourceTree = "<group>"; };
+		FD02E4352AADF6950048AABB /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		FD02E4362AADF6950048AABB /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FD02E4122AADF61C0048AABB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD02E42B2AADF63E0048AABB /* AdmiralNotificationsSwiftUI in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FD02E40C2AADF61C0048AABB = {
+			isa = PBXGroup;
+			children = (
+				FD02E4272AADF6340048AABB /* Packages */,
+				FD02E4172AADF61C0048AABB /* AdmiralUINotificationViewer */,
+				FD02E4162AADF61C0048AABB /* Products */,
+				FD02E4292AADF63E0048AABB /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		FD02E4162AADF61C0048AABB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FD02E4152AADF61C0048AABB /* AdmiralUINotificationViewer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FD02E4172AADF61C0048AABB /* AdmiralUINotificationViewer */ = {
+			isa = PBXGroup;
+			children = (
+				FD02E4332AADF6870048AABB /* Presentation */,
+				FD02E42E2AADF67A0048AABB /* Model */,
+				FD02E4182AADF61C0048AABB /* AdmiralUINotificationViewerApp.swift */,
+				FD02E41C2AADF61D0048AABB /* Assets.xcassets */,
+				FD02E41E2AADF61D0048AABB /* AdmiralUINotificationViewer.entitlements */,
+				FD02E41F2AADF61D0048AABB /* Preview Content */,
+			);
+			path = AdmiralUINotificationViewer;
+			sourceTree = "<group>";
+		};
+		FD02E41F2AADF61D0048AABB /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				FD02E4202AADF61D0048AABB /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FD02E4272AADF6340048AABB /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				FD02E4282AADF6340048AABB /* AdmiralNotificationsSwiftUI */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		FD02E4292AADF63E0048AABB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FD02E42E2AADF67A0048AABB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FD02E42F2AADF6840048AABB /* ToastModel.swift */,
+				FD02E4302AADF6840048AABB /* ToastType.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FD02E4332AADF6870048AABB /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				FD02E4352AADF6950048AABB /* MainView.swift */,
+				FD02E4362AADF6950048AABB /* MainViewModel.swift */,
+				FD02E4342AADF6940048AABB /* ToastSettingsView.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FD02E4142AADF61C0048AABB /* AdmiralUINotificationViewer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD02E4242AADF61D0048AABB /* Build configuration list for PBXNativeTarget "AdmiralUINotificationViewer" */;
+			buildPhases = (
+				FD02E4112AADF61C0048AABB /* Sources */,
+				FD02E4122AADF61C0048AABB /* Frameworks */,
+				FD02E4132AADF61C0048AABB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AdmiralUINotificationViewer;
+			packageProductDependencies = (
+				FD02E42A2AADF63E0048AABB /* AdmiralNotificationsSwiftUI */,
+			);
+			productName = AdmiralUINotificationViewer;
+			productReference = FD02E4152AADF61C0048AABB /* AdmiralUINotificationViewer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FD02E40D2AADF61C0048AABB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					FD02E4142AADF61C0048AABB = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+				};
+			};
+			buildConfigurationList = FD02E4102AADF61C0048AABB /* Build configuration list for PBXProject "AdmiralUINotificationViewer" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FD02E40C2AADF61C0048AABB;
+			productRefGroup = FD02E4162AADF61C0048AABB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FD02E4142AADF61C0048AABB /* AdmiralUINotificationViewer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FD02E4132AADF61C0048AABB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD02E4212AADF61D0048AABB /* Preview Assets.xcassets in Resources */,
+				FD02E41D2AADF61D0048AABB /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FD02E4112AADF61C0048AABB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD02E4392AADF6950048AABB /* MainViewModel.swift in Sources */,
+				FD02E4312AADF6840048AABB /* ToastModel.swift in Sources */,
+				FD02E4382AADF6950048AABB /* MainView.swift in Sources */,
+				FD02E4192AADF61C0048AABB /* AdmiralUINotificationViewerApp.swift in Sources */,
+				FD02E4372AADF6950048AABB /* ToastSettingsView.swift in Sources */,
+				FD02E4322AADF6840048AABB /* ToastType.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		FD02E4222AADF61D0048AABB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FD02E4232AADF61D0048AABB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		FD02E4252AADF61D0048AABB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AdmiralUINotificationViewer/AdmiralUINotificationViewer.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"AdmiralUINotificationViewer/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = AdmiralUINotificationViewer.com.ru.AdmiralUINotificationViewer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FD02E4262AADF61D0048AABB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AdmiralUINotificationViewer/AdmiralUINotificationViewer.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"AdmiralUINotificationViewer/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = AdmiralUINotificationViewer.com.ru.AdmiralUINotificationViewer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FD02E4102AADF61C0048AABB /* Build configuration list for PBXProject "AdmiralUINotificationViewer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD02E4222AADF61D0048AABB /* Debug */,
+				FD02E4232AADF61D0048AABB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FD02E4242AADF61D0048AABB /* Build configuration list for PBXNativeTarget "AdmiralUINotificationViewer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD02E4252AADF61D0048AABB /* Debug */,
+				FD02E4262AADF61D0048AABB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FD02E42A2AADF63E0048AABB /* AdmiralNotificationsSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AdmiralNotificationsSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = FD02E40D2AADF61C0048AABB /* Project object */;
+}
