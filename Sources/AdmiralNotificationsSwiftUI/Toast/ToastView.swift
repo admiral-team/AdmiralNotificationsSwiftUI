@@ -138,6 +138,13 @@ public struct ToastView: View {
     
     /// Accessibility id.
     public let accessibilityIdentifier: String?
+
+    @State public var segmentSize: CGSize = .zero
+
+    // MARK: - Internal Properties
+
+    /// Toast direction.
+    var direction: ToastNotificationsDirection = .up
     
     // MARK: - Private Properties
 
@@ -282,79 +289,88 @@ public struct ToastView: View {
     
     public var body: some View {
         let scheme = schemeProvider.scheme
-        HStack(alignment: .top, spacing: 0.0) {
-            if let image = image {
-                Button(action: imageAction ?? {}, label: {
-                    if let imageColorType = imageColorType {
-                        image
-                            .foregroundColor(scheme.imageTintColor.parameter(isEnabled: isEnabled, type: imageColorType)?.swiftUIColor)
-                            .frame(
-                                width: LayoutGrid.halfModule * 7,
-                                height: LayoutGrid.halfModule * 7)
-                            .padding(.vertical, LayoutGrid.halfModule * 3)
-                            .padding(.leading, LayoutGrid.doubleModule)
-                    } else {
-                        image
-                            .frame(
-                                width: LayoutGrid.halfModule * 7,
-                                height: LayoutGrid.halfModule * 7)
-                            .padding(.vertical, LayoutGrid.halfModule * 3)
-                            .padding(.leading, LayoutGrid.doubleModule)
-                    }
-                })
-                .accessibilityIdentifier(ToastViewAccessibilityIdentifiers.imageView.accessibilityViewIdentifier(accessibilityIdentifier: accessibilityIdentifier))
-            } else if let timerDuration = timerDuration {
-                CountdownView(countTo: timerDuration, schemeProvider: .constant(scheme: scheme.countDownViewScheme))
-                    .frame(
-                        width: LayoutGrid.halfModule * 7,
-                        height: LayoutGrid.halfModule * 7)
-                    .padding(.vertical, LayoutGrid.halfModule * 3)
-                    .padding(.leading, LayoutGrid.doubleModule)
+        VStack(alignment: .leading, spacing: 0.0) {
+            if direction == .down {
+                Spacer(minLength: 0.0)
             }
+            HStack(alignment: .top, spacing: 0.0) {
+                if let image = image {
+                    Button(action: imageAction ?? {}, label: {
+                        if let imageColorType = imageColorType {
+                            image
+                                .foregroundColor(scheme.imageTintColor.parameter(isEnabled: isEnabled, type: imageColorType)?.swiftUIColor)
+                                .frame(
+                                    width: LayoutGrid.halfModule * 7,
+                                    height: LayoutGrid.halfModule * 7)
+                                .padding(.vertical, LayoutGrid.halfModule * 3)
+                                .padding(.leading, LayoutGrid.doubleModule)
+                        } else {
+                            image
+                                .frame(
+                                    width: LayoutGrid.halfModule * 7,
+                                    height: LayoutGrid.halfModule * 7)
+                                .padding(.vertical, LayoutGrid.halfModule * 3)
+                                .padding(.leading, LayoutGrid.doubleModule)
+                        }
+                    })
+                    .accessibilityIdentifier(ToastViewAccessibilityIdentifiers.imageView.accessibilityViewIdentifier(accessibilityIdentifier: accessibilityIdentifier))
+                } else if let timerDuration = timerDuration {
+                    CountdownView(countTo: timerDuration, schemeProvider: .constant(scheme: scheme.countDownViewScheme))
+                        .frame(
+                            width: LayoutGrid.halfModule * 7,
+                            height: LayoutGrid.halfModule * 7)
+                        .padding(.vertical, LayoutGrid.halfModule * 3)
+                        .padding(.leading, LayoutGrid.doubleModule)
+                }
 
-            VStack(alignment: .leading, spacing: LayoutGrid.module) {
-                Text(title)
-                    .foregroundColor(scheme.titleTextColor.parameter(isEnabled: isEnabled, type: type)?.swiftUIColor)
-                    .font(scheme.titleTextFont.swiftUIFont)
-                    .accessibilityIdentifier(accessibilityIdentifier ?? "")
-                if let linkText = linkText, let linkAction = linkAction {
-                    Button(linkText, action: linkAction)
-                        .buttonStyle(ToastGhostButtonStyle(schemeProvider: .constant(scheme: scheme.buttonScheme)))
-                        .frame(height: LayoutGrid.tripleModule)
-                        .accessibilityIdentifier(ToastViewAccessibilityIdentifiers.linkText.accessibilityViewIdentifier(accessibilityIdentifier: accessibilityIdentifier))
+                VStack(alignment: .leading, spacing: LayoutGrid.module) {
+                    Text(title)
+                        .foregroundColor(scheme.titleTextColor.parameter(isEnabled: isEnabled, type: type)?.swiftUIColor)
+                        .font(scheme.titleTextFont.swiftUIFont)
+                        .accessibilityIdentifier(accessibilityIdentifier ?? "")
+                    if let linkText = linkText, let linkAction = linkAction {
+                        Button(linkText, action: linkAction)
+                            .buttonStyle(ToastGhostButtonStyle(schemeProvider: .constant(scheme: scheme.buttonScheme)))
+                            .frame(height: LayoutGrid.tripleModule)
+                            .accessibilityIdentifier(ToastViewAccessibilityIdentifiers.linkText.accessibilityViewIdentifier(accessibilityIdentifier: accessibilityIdentifier))
+                    }
+                }
+                .padding(.top, LayoutGrid.doubleModule)
+                .padding(.leading, LayoutGrid.halfModule * 3)
+                .padding(.trailing, LayoutGrid.halfModule * 3)
+                .padding(.bottom, LayoutGrid.doubleModule)
+
+                Spacer(minLength: 0.0)
+                if let closeAction = closeAction {
+                    Button(action: closeAction, label: {
+                        if closeView() == nil {
+                            Constants.closeImage
+                                .frame(width: LayoutGrid.module * 3, height: LayoutGrid.module * 3)
+                                .foregroundColor(scheme.closeTintColor.parameter(isEnabled: isEnabled, type: type)?.swiftUIColor)
+                        } else {
+                            closeView()
+                                .foregroundColor(scheme.closeTintColor.parameter(isEnabled: isEnabled, type: type)?.swiftUIColor)
+                        }
+                    })
+                    .padding(.top, (LayoutGrid.halfModule / 2) * 7)
+                    .padding(.trailing, LayoutGrid.doubleModule)
+                    .accessibilityIdentifier(ToastViewAccessibilityIdentifiers.closeButton.accessibilityViewIdentifier(accessibilityIdentifier: accessibilityIdentifier))
                 }
             }
-            .padding(.top, LayoutGrid.doubleModule)
-            .padding(.leading, LayoutGrid.halfModule * 3)
-            .padding(.trailing, LayoutGrid.halfModule * 3)
-            .padding(.bottom, LayoutGrid.doubleModule)
-            
-            Spacer(minLength: 0.0)
-            if let closeAction = closeAction {
-                Button(action: closeAction, label: {
-                    if closeView() == nil {
-                        Constants.closeImage
-                            .frame(width: LayoutGrid.module * 3, height: LayoutGrid.module * 3)
-                            .foregroundColor(scheme.closeTintColor.parameter(isEnabled: isEnabled, type: type)?.swiftUIColor)
-                    } else {
-                        closeView()
-                            .foregroundColor(scheme.closeTintColor.parameter(isEnabled: isEnabled, type: type)?.swiftUIColor)
-                    }
-                })
-                .padding(.top, (LayoutGrid.halfModule / 2) * 7)
-                .padding(.trailing, LayoutGrid.doubleModule)
-                .accessibilityIdentifier(ToastViewAccessibilityIdentifiers.closeButton.accessibilityViewIdentifier(accessibilityIdentifier: accessibilityIdentifier))
+            .background(scheme.backgroundColor.parameter(isEnabled: isEnabled, type: type)?.swiftUIColor)
+            .cornerRadius(cornerRadius)
+            .overlay(
+                RoundedRectangle(cornerRadius: cornerRadius)
+                    .stroke(
+                        scheme.borderColor.parameter(isEnabled: isEnabled, type: type)?.swiftUIColor ?? .clear,
+                        lineWidth: borderWidth
+                    )
+            )
+            if direction == .up {
+                Spacer(minLength: 0.0)
             }
         }
-        .background(scheme.backgroundColor.parameter(isEnabled: isEnabled, type: type)?.swiftUIColor)
-        .cornerRadius(cornerRadius)
-        .overlay(
-            RoundedRectangle(cornerRadius: cornerRadius)
-                .stroke(
-                    scheme.borderColor.parameter(isEnabled: isEnabled, type: type)?.swiftUIColor ?? .clear,
-                    lineWidth: borderWidth
-                )
-        )
+        .frame(height: Constants.maxHeight)
     }
     
 }
@@ -372,6 +388,7 @@ struct ToastView_Previews: PreviewProvider {
             imageType: .info,
             imageColorType: .info,
             closeAction: {},
-            type: .default)
+            type: .default
+        )
     }
 }

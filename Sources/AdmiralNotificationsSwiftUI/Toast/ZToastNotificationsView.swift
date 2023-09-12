@@ -74,7 +74,8 @@ public struct ZToastNotificationsView<Content>: View where Content: View {
         topOffset: CGFloat,
         bottomOffset: CGFloat = 0.0,
         toastsDidDisappear: @escaping  ()->() = {},
-        @ViewBuilder content: @escaping (ToastPresenter) -> (Content)) {
+        @ViewBuilder content: @escaping (ToastPresenter) -> (Content))
+    {
         self.content = content
         self.direction = direction
         self._topOffset = .init(initialValue: topOffset)
@@ -85,7 +86,10 @@ public struct ZToastNotificationsView<Content>: View where Content: View {
         self._toastPresenter = StateObject<ToastPresenter>(
             wrappedValue: ToastPresenter(
                 animationDuration: animationDuration,
-                hideAnimationDuration: hideAnimationDuration))
+                hideAnimationDuration: hideAnimationDuration,
+                direction: direction
+            )
+        )
     }
 
     // MARK: - Body
@@ -138,6 +142,9 @@ public struct ZToastNotificationsView<Content>: View where Content: View {
             }
             .padding(.horizontal, LayoutGrid.doubleModule)
         }
+        .onChange(of: direction) { newValue in
+            toastPresenter.direction = newValue
+        }
     }
 
     // MARK: - Layouts
@@ -177,6 +184,7 @@ public struct ZToastNotificationsView<Content>: View where Content: View {
             )
             .offset(x: 0.0, y: toastOffset)
             .animation(.easeInOut(duration: toastPresenter.animationDuration))
+            .ignoresSafeArea()
     }
 
     private var toastNextView: some View {
@@ -215,6 +223,7 @@ public struct ZToastNotificationsView<Content>: View where Content: View {
             )
             .offset(x: 0.0, y: toastNextOffset)
             .animation(.easeInOut(duration: toastPresenter.animationDuration))
+            .ignoresSafeArea()
     }
 
     private var toastDownView: some View {
@@ -255,6 +264,7 @@ public struct ZToastNotificationsView<Content>: View where Content: View {
             )
             .offset(x: 0.0, y: defaultToastYOffset + toastOffset)
             .animation(.easeInOut(duration: toastPresenter.animationDuration))
+            .ignoresSafeArea()
     }
 
     private var toastDownNextView: some View {
@@ -295,6 +305,7 @@ public struct ZToastNotificationsView<Content>: View where Content: View {
             )
             .offset(x: 0.0, y: defaultToastYOffset + toastNextOffset)
             .animation(.easeInOut(duration: toastPresenter.animationDuration))
+            .ignoresSafeArea()
     }
 
     private func removeTostsFromModel() {

@@ -15,8 +15,8 @@ struct MainView: View {
             hideAnimationDuration: Double(viewModel.toastModel?.duration ?? 5),
             direction: viewModel.toastModel?.toastDirection ?? .up,
             isAfterTouchUpdateTimer: viewModel.toastModel?.toastDirection == .up,
-            topOffset: 50,
-            bottomOffset: 100,
+            topOffset: 0,
+            bottomOffset: 0,
             toastsDidDisappear: {},
             content: { presenter in
                 AppTheme.default.colors.backgroundBasic.swiftUIColor.edgesIgnoringSafeArea(.all)
