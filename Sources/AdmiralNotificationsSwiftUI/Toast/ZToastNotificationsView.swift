@@ -51,7 +51,7 @@ public struct ZToastNotificationsView<Content>: View where Content: View {
     private var isAfterTouchUpdateTimer: Bool = true
     @State private var toastOffset: CGFloat = 0.0
     @State private var toastNextOffset: CGFloat = 0.0
-    @State private var topOffset: CGFloat = UIApplication.shared.statusBarFrame.height
+    @State private var topOffset: CGFloat = 0.0
     @State private var bottomOffset: CGFloat = 0.0
     private var toastsDidDisappear: () -> () = {}
 
@@ -71,7 +71,7 @@ public struct ZToastNotificationsView<Content>: View where Content: View {
         hideAnimationDuration: Double = 7.0,
         direction: ToastNotificationsDirection = .down,
         isAfterTouchUpdateTimer: Bool = true,
-        topOffset: CGFloat,
+        topOffset: CGFloat = 0.0,
         bottomOffset: CGFloat = 0.0,
         toastsDidDisappear: @escaping  ()->() = {},
         @ViewBuilder content: @escaping (ToastPresenter) -> (Content))
@@ -98,8 +98,6 @@ public struct ZToastNotificationsView<Content>: View where Content: View {
         ZStack {
             content(toastPresenter)
             VStack {
-                Spacer()
-                    .frame(height: topOffset)
                 switch direction {
                 case .up:
                     toastView
@@ -154,12 +152,12 @@ public struct ZToastNotificationsView<Content>: View where Content: View {
             .transition(
                 AnyTransition
                     .offset(
-                        .init(width: 0, height: -(LayoutGrid.halfModule * 33) - topOffset)
+                        .init(width: 0, height: -(LayoutGrid.halfModule * 33))
                     )
                     .combined(
                         with:
                         .offset(
-                            .init(width: 0, height: 0.0)
+                            .init(width: 0, height: topOffset)
                         )
                     )
             )
@@ -182,7 +180,7 @@ public struct ZToastNotificationsView<Content>: View where Content: View {
                         }
                     }
             )
-            .offset(x: 0.0, y: toastOffset)
+            .offset(x: 0.0, y: topOffset)
             .animation(.easeInOut(duration: toastPresenter.animationDuration))
             .ignoresSafeArea()
     }
@@ -192,7 +190,7 @@ public struct ZToastNotificationsView<Content>: View where Content: View {
             .transition(
                 AnyTransition
                     .offset(
-                        .init(width: 0, height: -(LayoutGrid.halfModule * 33) - topOffset)
+                        .init(width: 0, height: -(LayoutGrid.halfModule * 33))
                     )
                     .combined(
                         with:
@@ -221,7 +219,7 @@ public struct ZToastNotificationsView<Content>: View where Content: View {
                         }
                     }
             )
-            .offset(x: 0.0, y: toastNextOffset)
+            .offset(x: 0.0, y: topOffset)
             .animation(.easeInOut(duration: toastPresenter.animationDuration))
             .ignoresSafeArea()
     }
@@ -262,7 +260,7 @@ public struct ZToastNotificationsView<Content>: View where Content: View {
                         }
                     }
             )
-            .offset(x: 0.0, y: defaultToastYOffset + toastOffset)
+            .offset(x: 0.0, y: defaultToastYOffset)
             .animation(.easeInOut(duration: toastPresenter.animationDuration))
             .ignoresSafeArea()
     }
@@ -303,7 +301,7 @@ public struct ZToastNotificationsView<Content>: View where Content: View {
                         }
                     }
             )
-            .offset(x: 0.0, y: defaultToastYOffset + toastNextOffset)
+            .offset(x: 0.0, y: defaultToastYOffset)
             .animation(.easeInOut(duration: toastPresenter.animationDuration))
             .ignoresSafeArea()
     }
