@@ -152,7 +152,7 @@ public struct ZToastNotificationsView<Content>: View where Content: View {
             .transition(
                 AnyTransition
                     .offset(
-                        .init(width: 0, height: -(LayoutGrid.halfModule * 33))
+                        .init(width: 0, height: -(LayoutGrid.halfModule * 43) - topOffset)
                     )
                     .combined(
                         with:
@@ -190,7 +190,7 @@ public struct ZToastNotificationsView<Content>: View where Content: View {
             .transition(
                 AnyTransition
                     .offset(
-                        .init(width: 0, height: -(LayoutGrid.halfModule * 33))
+                        .init(width: 0, height: -(LayoutGrid.halfModule * 43) - topOffset)
                     )
                     .combined(
                         with:
