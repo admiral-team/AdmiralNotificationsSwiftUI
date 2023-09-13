@@ -38,6 +38,7 @@ public class ToastPresenter: ObservableObject {
 
     @Published public var animationDuration: Double = Durations.Default.double
     @Published public var hideAnimationDuration: Double = Constants.hideAnimationDuration
+    @Published public var direction: ToastNotificationsDirection = .up
 
     public var isToastDisappear: Bool = true
     public var isNextToastDisappear: Bool = true
@@ -56,10 +57,12 @@ public class ToastPresenter: ObservableObject {
     ///   - hideAnimationDuration: Cancel animation duration.
     public init(
         animationDuration: Double = Durations.Default.double,
-        hideAnimationDuration: Double = Constants.hideAnimationDuration
+        hideAnimationDuration: Double = Constants.hideAnimationDuration,
+        direction: ToastNotificationsDirection = .up
     ) {
         self.animationDuration = animationDuration
         self.hideAnimationDuration = hideAnimationDuration
+        self.direction = direction
 
         queue.maxConcurrentOperationCount = 1
     }
@@ -71,11 +74,15 @@ public class ToastPresenter: ObservableObject {
     }
 
     // MARK: - Public Methods
+    public func changeDirection(_ direction: ToastNotificationsDirection) {
+        self.direction = direction
+    }
 
     public func showView(
         _ view: ToastView,
         animationDuration: Double = Durations.Default.double,
-        hideAnimationDuration: Double = Constants.hideAnimationDuration) {
+        hideAnimationDuration: Double = Constants.hideAnimationDuration
+    ) {
         self.animationDuration = animationDuration
         self.hideAnimationDuration = hideAnimationDuration
 
@@ -97,6 +104,7 @@ public class ToastPresenter: ObservableObject {
                         self?.toastNext = nil
                         self?.addHideOperation()
                     })
+                    self.toastNext?.direction = direction
                 } else {
                     self.toastNext = nil
                     self.toast = self.toastView(view, closeAction: { [weak self] in
@@ -106,6 +114,7 @@ public class ToastPresenter: ObservableObject {
                         self?.toast = nil
                         self?.addHideOperation()
                     })
+                    self.toast?.direction = direction
                 }
 
                 // WORKAROUND: Work for solve problem set pause.
@@ -125,7 +134,7 @@ public class ToastPresenter: ObservableObject {
 
     public func toastView(_ view: ToastView, closeAction: @escaping () -> ()) -> ToastView {
         if let timerDuration = view.timerDuration {
-            return ToastView(
+            var tostView = ToastView(
                 title: view.title,
                 linkText: view.linkText,
                 linkAction: view.linkAction,
@@ -138,8 +147,10 @@ public class ToastPresenter: ObservableObject {
                 borderWidth: view.borderWidth,
                 accessibilityIdentifier: view.accessibilityIdentifier
             )
+            tostView.direction = direction
+            return tostView
         } else {
-            return ToastView(
+            var tostView = ToastView(
                 title: view.title,
                 linkText: view.linkText,
                 linkAction: view.linkAction,
@@ -154,6 +165,8 @@ public class ToastPresenter: ObservableObject {
                 borderWidth: view.borderWidth,
                 accessibilityIdentifier: view.accessibilityIdentifier
             )
+            tostView.direction = direction
+            return tostView
         }
     }
 
