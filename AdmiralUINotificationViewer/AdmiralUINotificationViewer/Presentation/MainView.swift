@@ -7,6 +7,7 @@ import SwiftUI
 
 struct MainView: View {
     @StateObject private var viewModel = MainViewModel()
+    @State private var bottomOffset: CGFloat = 0.0
     
     // MARK: - Body
     
@@ -16,7 +17,7 @@ struct MainView: View {
             direction: viewModel.toastModel?.toastDirection ?? .up,
             isAfterTouchUpdateTimer: viewModel.toastModel?.toastDirection == .up,
             topOffset: 0,
-            bottomOffset: 0,
+            bottomOffset: $bottomOffset,
             toastsDidDisappear: {},
             content: { presenter in
                 AppTheme.default.colors.backgroundBasic.swiftUIColor.edgesIgnoringSafeArea(.all)
