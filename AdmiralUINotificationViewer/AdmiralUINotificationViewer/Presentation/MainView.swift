@@ -7,6 +7,7 @@ import SwiftUI
 
 struct MainView: View {
     @StateObject private var viewModel = MainViewModel()
+    @State private var topOffset: CGFloat = 0.0
     @State private var bottomOffset: CGFloat = 0.0
     
     // MARK: - Body
@@ -16,6 +17,7 @@ struct MainView: View {
             hideAnimationDuration: Double(viewModel.toastModel?.duration ?? 5),
             direction: viewModel.toastModel?.toastDirection ?? .up,
             isAfterTouchUpdateTimer: viewModel.toastModel?.toastDirection == .up,
+            topOffset: $topOffset,
             bottomOffset: $bottomOffset,
             toastsDidDisappear: {},
             content: { presenter in
