@@ -51,7 +51,7 @@ public struct ZToastNotificationsView<Content>: View where Content: View {
     private var isAfterTouchUpdateTimer: Bool = true
     @State private var toastOffset: CGFloat = 0.0
     @State private var toastNextOffset: CGFloat = 0.0
-    @State private var topOffset: CGFloat = 0.0
+    @Binding private var topOffset: CGFloat
     @Binding private var bottomOffset: CGFloat
     private var toastsDidDisappear: () -> () = {}
 
@@ -71,14 +71,14 @@ public struct ZToastNotificationsView<Content>: View where Content: View {
         hideAnimationDuration: Double = 7.0,
         direction: ToastNotificationsDirection = .down,
         isAfterTouchUpdateTimer: Bool = true,
-        topOffset: CGFloat = 0.0,
+        topOffset: Binding<CGFloat> = .constant(0),
         bottomOffset: Binding<CGFloat> = .constant(0),
         toastsDidDisappear: @escaping  ()->() = {},
         @ViewBuilder content: @escaping (ToastPresenter) -> (Content))
     {
         self.content = content
         self.direction = direction
-        self._topOffset = .init(initialValue: topOffset)
+        self._topOffset = topOffset
         self.isAfterTouchUpdateTimer = isAfterTouchUpdateTimer
         self._bottomOffset = bottomOffset
         self.toastsDidDisappear = toastsDidDisappear

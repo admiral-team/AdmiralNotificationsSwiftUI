@@ -16,7 +16,6 @@ struct MainView: View {
             hideAnimationDuration: Double(viewModel.toastModel?.duration ?? 5),
             direction: viewModel.toastModel?.toastDirection ?? .up,
             isAfterTouchUpdateTimer: viewModel.toastModel?.toastDirection == .up,
-            topOffset: 0,
             bottomOffset: $bottomOffset,
             toastsDidDisappear: {},
             content: { presenter in
