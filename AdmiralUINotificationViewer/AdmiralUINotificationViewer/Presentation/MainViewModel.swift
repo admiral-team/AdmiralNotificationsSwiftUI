@@ -19,7 +19,7 @@ final class MainViewModel: ObservableObject {
             title: "Notification title",
             duration: 2,
             toastType: .notification,
-            toastViewType: .success,
+            toastViewType: .error,
             image: nil,
             linkText: nil,
             cornerRadius: 20,
